@@ -8,19 +8,26 @@
 
 <input type="number" id="amt"> Amount </input>
 <select id="value1">
-    <option>VND</option>
-    <option>USD</option>
+    <option value="VND">VND</option>
+    <option value="USD">USD</option>
 </select>
 <select id="value2">
-    <option>USD</option>
-    <option>VND</option>
+    <option value="USD">VND</option>
+    <option value="VND">USD</option>
 </select>
-<button onclick="bienhoa()"> Convert </button>
+<button onclick="bienhoa();"> Convert </button>
 <script>
     function bienhoa() {
         var x = parseInt(document.getElementById("amt").value);
-        if (document.getElementById("value1").selectedIndex == "1" && document.getElementById("value2").selectedIndex = "1") {document.write((x*0.000043) + USD);}
-        if (document.getElementById("value1").selectedIndex == "2" && document.getElementById("value2").selectedIndex = "2") {document.write((x*23184.95) + VND);}
+        console.log(x);
+        var money1 = document.getElementById("value1");
+        var money2 = document.getElementById("value2");
+        if (money1.selectedIndex == 0 && money2.selectedIndex == 1) {
+            alert((x*0.000043) + "USD");
+        } else if (money1.selectedIndex == 1 && money2.selectedIndex == 0) {
+            alert((x*23184.95) + "VND");
+
+        }
     }
 </script>
 
